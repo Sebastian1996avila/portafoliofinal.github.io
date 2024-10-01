@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sebastian Avila - Desarrollador Front-end. Descubre mis habilidades, proyectos y cómo contactarme.">
+    <meta name="keywords" content="Desarrollador Front-end, HTML, CSS, JavaScript, React, Bootstrap, Proyectos, Contacto">
+    <title>Sebastian Avila</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ecf0f1; 
+            color: #34495e; /* Gris Oscuro */
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 2fr 3fr;
+            grid-template-rows: auto 1fr auto;
+            grid-template-areas:
+                "header header"
+                "sidebar main"
+                "footer footer";
+            grid-gap: 10px;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .container2 {
+            display: flex;                  
+            flex-wrap: wrap;                
+            gap: 20px;                     
+            padding: 20px;                 
+            background-color: #f9f9f9;     
+        }
+        
+        .container2 p {
+            flex: 1 1 30%;                  
+            box-sizing: border-box;        
+            padding: 15px;                 
+            background-color: #ffffff;     
+            border: 1px solid #031f3b;        
+            border-radius: 5px;            
+            margin: 10px 0;                
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .header {
+            grid-area: header;
+            background-color: #031f3b; /* Azul Noche */
+            color: #ecf0f1; /* Gris Claro */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #ffffff; 
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .main {
+            grid-area: main;
+            background-color: #ffffff; /* Blanco */
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .footer {
+            grid-area: footer;
+            background-color: #031f3b; /* Azul Noche */
+            color: #ecf0f1; /* Gris Claro */
+            text-align: center;
+            padding: 10px;
+        }
+
+        .profile img {
+            border-radius: 10%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        a {
+            color: #3498db; /* Azul Claro */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .parallax {
+            background-image: url('images/parallax-background.jpg');
+            height: 50px; /* Ajusta según sea necesario */
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .animated {
+            animation: fadeIn 2s ease-in;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .contact-form button:hover {
+            background-color: #2980b9;
+        }
+
+        .testimonials {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .testimonial {
+            margin: 20px 0;
+        }
+
+        .testimonial p {
+            font-style: italic;
+        }
+
+        .testimonial h3 {
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "main"
+                    "footer";
+            }
+            .sidebar {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Desarrollador Front-end</h1>
+        </header>
+        <aside class="sidebar">
+            <h2>Sobre Mí</h2>
+            <p>Soy un apasionado desarrollador front-end con un enfoque en crear experiencias web intuitivas y atractivas. Me encanta transformar ideas en interfaces interactivas y funcionales. Desde el primer día en que escribí mi primer "Hola Mundo", supe que quería dedicarme a la programación.</p>
+            <img src="images/front.jpg" alt="Foto de perfil de Sebastian Avila">
+            <div class="container2">
+                <p>He trabajado en diversos proyectos que abarcan desde aplicaciones web simples hasta sistemas más complejos. Siempre busco aprender nuevas tecnologías y mantenerme al día con las tendencias del sector.</p>
+                <p>Mi enfoque en el diseño responsivo asegura que mis proyectos sean accesibles en cualquier dispositivo, brindando una experiencia óptima para el usuario. Creo firmemente que la usabilidad es clave en el desarrollo web.</p>
+                <p>Además, tengo experiencia colaborando en equipos ágiles, donde la comunicación efectiva y la adaptabilidad son esenciales para el éxito del proyecto. La sinergia en el trabajo en equipo es algo que valoro profundamente.</p>
+                <p>Me apasiona el desarrollo sostenible y busco maneras de optimizar el rendimiento de mis aplicaciones, minimizando el uso de recursos y mejorando los tiempos de carga.</p>
+            </div>
+            <h1>Mi perfil</h1>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9zkKiPFydvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </aside>
+        <main class="main">
+            <section class="parallax">
+                <h2>Mi Portafolio</h2>
+            </section>
+            <section class="profile animated">
+                <img src="images/photo.jpg" alt="Foto de Sebastian Avila">
+                <h1>Sebastian Avila</h1>
+                <p>Soy un estudiante enfocado en la programación front-end con una sólida base en tecnologías web modernas. Actualmente, estoy cursando Tecnología en Desarrollo de Software y he adquirido habilidades prácticas en el desarrollo de interfaces de usuario interactivas y atractivas.</p>
+                <h2>Mis habilidades incluyen:</h2>
+                <ul>
+                    <li><strong>HTML5 y CSS3:</strong> Creación de estructuras semánticas y diseño responsivo adaptado a diferentes dispositivos.</li>
+                    <li><strong>JavaScript:</strong> Implementación de funcionalidades dinámicas y manejo del DOM para mejorar la experiencia del usuario.</li>
+                    <li><strong>Frameworks y bibliotecas:</strong> Familiaridad con React y Bootstrap para desarrollar aplicaciones web eficientes y visualmente atractivas.</li>
+                    <li><strong>Control de versiones:</strong> Uso de Git para la gestión de proyectos y colaboración en equipo, asegurando un flujo de trabajo ágil.</li>
+                    <li><strong>Accesibilidad:</strong> Compromiso con las mejores prácticas para crear aplicaciones inclusivas para todos los usuarios.</li>
+                </ul>
+            </section>
+            <section class="projects">
+                <h2>Mis Proyectos</h2>
+                <ul>
+                    <li><a href="link-al-proyecto1.html">Proyecto de Gestión de Tareas</a>: Una aplicación web que permite a los usuarios organizar y gestionar sus tareas diarias de manera eficiente.</li>
+                    <li><a href="link-al-proyecto2.html">Página Web para Restaurante</a>: Un sitio web responsivo diseñado para mejorar la experiencia del cliente, con un sistema de reservas y un menú interactivo.</li>
+                </ul>
+            </section>
+            <section class="testimonials">
+                <h2>Testimonios</h2>
+                <div class="testimonial">
+                    <p>""</p>
+                    <h3>Cliente 1</h3>
+                </div>
+                <div class="testimonial">
+                    <p>""</p>
+                    <h3>Cliente 2</h3>
+                </div>
+            </section>
+            <section class="contact">
+                <h2>Contacto</h2>
+                <form class="contact-form">
+                    <input type="text" placeholder="Tu nombre" required>
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Sebastian Avila. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
